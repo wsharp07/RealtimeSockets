@@ -1,0 +1,10 @@
+{
+  "name": "RealtimeSockets",
+  "description": "Playing with NodeJS HTTP Server and Sockets.",
+  "version": "0.0.1",
+  "private": false,
+  "author": "https://github.com/meanjs/mean/graphs/contributors",
+  "dependencies": {
+    "mime": "^1.2.11"
+  }
+}

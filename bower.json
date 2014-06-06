@@ -1,0 +1,9 @@
+{
+  "name": "RealtimeSockets",
+  "version": "0.0.1",
+  "description": "Playing with NodeJS HTTP Server and Sockets.",
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "jquery": "~2.1.1"
+  }
+}

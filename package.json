@@ -6,6 +6,7 @@
   "author": "https://github.com/meanjs/mean/graphs/contributors",
   "dependencies": {
     "mime": "^1.2.11",
-    "socket.io": "^1.0.4"
+    "socket.io": "^1.0.4",
+    "mongoose": "^3.8.12"
   }
 }

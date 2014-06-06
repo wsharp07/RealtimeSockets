@@ -50,7 +50,7 @@ function start() {
     };
 
 
-    function onRequest(request, response) {
+    function requestHandler(request, response) {
         var
             fileName = request.url,
             localFolder = __dirname + '/public/',
@@ -59,7 +59,7 @@ function start() {
         getFile((localFolder + fileName),response,page404);
     }
 
-    http.createServer(onRequest).listen(3000);
+    http.createServer(requestHandler).listen(3000);
     console.log("Server has started on port 3000.");
 }
 

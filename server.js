@@ -70,8 +70,12 @@ function start() {
         handler = router.route(request);
         handler.process(request,response);
     }
+    var app = http.createServer(requestHandler).listen(3000);
+    var io = require('socket.io')(app);
 
-    http.createServer(requestHandler).listen(3000);
+    io.on('connection', function (socket) {
+        socket.emit('all', { message: 'Established Socket.IO connection.' });
+    });
     console.log("Server has started on port 3000.");
 }
 

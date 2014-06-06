@@ -2,9 +2,9 @@
  * Created by wsharp on 6/6/2014.
  */
 var http = require("http");
-var path = require("path");
-var mime = require('mime');
-var fs = require("fs");
+    path = require("path"),
+    mime = require('mime'),
+    fs = require("fs");
 
 function start() {
 
@@ -22,8 +22,6 @@ function start() {
                 //read the file, run the anonymous function
                 fs.readFile(filePath,function(err,contents){
                     if(!err){
-                        //if there was no error
-                        //send the contents with the default 200/ok header
                         writeHeader(res,filePath);
                         res.end(contents);
                     } else {
@@ -55,6 +53,7 @@ function start() {
             fileName = request.url,
             localFolder = __dirname + '/public/',
             page404 = localFolder + '404.html';
+
         if(fileName == '/'){fileName = 'index.html'}
         getFile((localFolder + fileName),response,page404);
     }

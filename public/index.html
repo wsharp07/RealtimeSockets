@@ -60,6 +60,7 @@
 <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="lib/toastr/toastr.js"></script>
+<script type="text/javascript" src="lib/momentjs/min/moment.min.js"></script>
 
 <!-- Socket.io stuffs -->
 <script src="/socket.io/socket.io.js"></script>
@@ -79,8 +80,9 @@
     });
 
     function parseLog(log){
+        console.log(log);
         var html = "";
-        html += log.Date + " ";
+        html += moment(log.Date).format('MM-DD-YYYY hh:mm:ss') + " ";
         html += log.Machine + " ";
         html += '<strong>[' + log.LogLevel.Name.toUpperCase() + ']</strong> ';
         html += log.Message;

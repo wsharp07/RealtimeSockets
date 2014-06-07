@@ -5,17 +5,6 @@ var mongoose = require("mongoose");
 var socket = require("./socketio");
 var logModel = require("./models/LogModel");
 
-function LoadAllLogs(err, logs){
-    if(err != 'null'){
-        logs.forEach(function(log){
-            socket.SendMessage(log);
-        })
-    }
-    else{
-        console.log(err);
-    }
-}
-
 exports.Connect = function(){
     mongoose.connect('mongodb://localhost/logdb');
     var db = mongoose.connection;

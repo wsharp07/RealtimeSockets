@@ -3,6 +3,7 @@
  */
 var mongoose = require("mongoose");
 var socket = require("./socketio");
+var database = require("./database");
 var logModel = require("./models/LogModel");
 
 exports.Connect = function(){
@@ -12,11 +13,19 @@ exports.Connect = function(){
     db.once('open', function callback () {
         console.log("Connected to MongoDB!");
 
-        var stream = logModel.Log.find().tailable().stream();
+        database.SetStream();
+    });
+};
 
-        stream.on('data',function(doc){
-            socket.SendMessage(doc);
-        });
+exports.SetStream = function(filter,limit){
+    // default to 250 record limit
+    if(limit == null){
+        limit = 250;
+    }
+    var stream = logModel.Log.find(filter).tailable().limit(limit).stream();
+
+    stream.on('data',function(doc){
+        socket.SendMessage(doc);
     });
 };
 

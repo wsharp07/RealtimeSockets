@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="logFusion">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Realtime[Sockets]</title>
@@ -31,42 +31,51 @@
     </div>
 </div>
 
-<!-- Main -->
-<div class="container-fluid" style="padding-top:60px;">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-12">
-            <section id="messageContainer"></section>
-            <br/>
+<!-- Wrapper -->
+<div id="wrapper">
+    <div id="main_wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="container-fluid" style="padding-top:60px;">
+                <!-- Example row of columns -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <section id="messageContainer"></section>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 tuck-right">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input id="txtSearch" type="text" class="form-control"
+                                   placeholder="Example: 'Access Denied'">
+                        </div>
+                    </div>
+                    <div class="col-md-1 tuck-left">
+                        <div class="input-group">
+                            <button id="btnSearch" type="button" class="btn btn-default">Search <i
+                                    class="fa fa-arrow-circle-o-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<!-- /container -->
 
-<!-- Footer -->
-<div id="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 tuck-right">
-                <div class="input-group center-footer">
-                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input id="txtSearch" type="text" class="form-control" placeholder="Example: 'Access Denied'">
-                </div>
-            </div>
-            <div class="col-md-1 tuck-left">
-                <div class="input-group center-footer">
-                    <button id="btnSearch" type="button" class="btn btn-default">Search <i class="fa fa-arrow-circle-o-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Load scripts last -->
 <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="lib/toastr/toastr.js"></script>
 <script type="text/javascript" src="lib/momentjs/min/moment.min.js"></script>
+<!--<script type="text/javascript" src="lib/angular/angular.js"></script>-->
 
 <!-- Page scripts -->
 <script type="text/javascript" src="view_scripts/index.js"></script>
@@ -94,19 +103,19 @@
     //
     // On DOM Ready
     //
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-       /* Click Events */
-       $(document).on("click",".log-machine", function(e){
+        /* Click Events */
+        $(document).on("click", ".log-machine", function (e) {
             setSearchText(e.target.innerText, "machine");
 
-       });
+        });
 
-        $(document).on("click",".log-sender", function(e){
+        $(document).on("click", ".log-sender", function (e) {
             setSearchText(e.target.innerText, "sender");
         });
 
-        $("#btnSearch").click(function(){
+        $("#btnSearch").click(function () {
 
         });
     });

@@ -6,13 +6,18 @@ var express = require('express'),
     socket = require('./app/socket'),
     db = require('./app/database');
 
+var port = process.env.PORT || 3000;
 var app = express();
 
 // static routing, just for now
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/search/:filter', function(req, res) {
+    console.log('filter: ' + req.params.filter + '!');
+});
+
 // setup the server
-var server = app.listen(3000, function() {
+var server = app.listen(port, function() {
     console.log('Listening on port %d', server.address().port);
 });
 

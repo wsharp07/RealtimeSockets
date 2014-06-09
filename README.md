@@ -13,5 +13,5 @@ bower install
 ```
 
 ```
-node app.js
+node server.js
 ```

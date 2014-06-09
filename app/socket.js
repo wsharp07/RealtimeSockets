@@ -3,7 +3,7 @@
  */
 var io;
 var logModel = require("./models/LogModel");
-var socket = require("./socketio");
+var socket = require("./socket");
 
 exports.Listen = function(app){
     io = require('socket.io')(app);

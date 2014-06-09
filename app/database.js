@@ -2,7 +2,7 @@
  * Created by wsharp on 6/6/2014.
  */
 var mongoose = require("mongoose");
-var socket = require("./socketio");
+var socket = require("./socket");
 var database = require("./database");
 var logModel = require("./models/LogModel");
 

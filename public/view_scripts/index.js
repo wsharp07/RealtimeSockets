@@ -1,6 +1,23 @@
 /**
  * Created by wsharp on 6/8/14.
  */
+function initToastr(){
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": 'toast-top-center',
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+}
+
 function parseLog(log) {
     var html = "";
     html += moment(log.Date).format('MMM DD hh:mm:ssa') + " ";

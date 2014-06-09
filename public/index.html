@@ -2,16 +2,20 @@
 <html ng-app="logFusion">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Realtime[Sockets]</title>
+    <title>Log{Fusion}</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/toastr/toastr.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <!-- Header -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-golden navbar-fixed-top" role="navigation">
     <div class="container- fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +24,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Realtime[Sockets]</a>
+            <a class="navbar-brand dark" href="#">Log[Fusion]</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav nav-pills navbar-right" style="padding-top:6px">
@@ -33,10 +37,10 @@
 
 <!-- Wrapper -->
 <div id="wrapper">
-    <div id="main_wrapper">
+    <div id="main-wrapper">
         <!-- Main -->
         <div id="main">
-            <div class="container-fluid" style="padding-top:60px;">
+            <div class="container-fluid tuck">
                 <!-- Example row of columns -->
                 <div class="row">
                     <div class="col-md-12">
@@ -50,18 +54,16 @@
         <div id="footer">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 tuck-right">
+                    <div class="col-md-4">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input id="txtSearch" type="text" class="form-control"
+                            <input id="txtSearch" type="text" class="form-control form-control-sm"
                                    placeholder="Example: 'Access Denied'">
-                        </div>
-                    </div>
-                    <div class="col-md-1 tuck-left">
-                        <div class="input-group">
-                            <button id="btnSearch" type="button" class="btn btn-default">Search <i
+                            <button id="btnSearch" type="button" class="btn btn-default btn-table">Search <i
                                     class="fa fa-arrow-circle-o-right"></i></button>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -104,6 +106,12 @@
     // On DOM Ready
     //
     $(document).ready(function () {
+
+        /* Setup Toastr */
+        initToastr();
+
+        // Go to the bottom of the page
+        $('#main').animate({scrollTop:$(document).height()}, 'slow');
 
         /* Click Events */
         $(document).on("click", ".log-machine", function (e) {
